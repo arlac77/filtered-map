@@ -1,0 +1,48 @@
+{
+  "name": "filtered-map",
+  "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "npm@11.18.0",
+  "exports": {
+    ".": {
+      "default": "./src/filtered-map.mjs"
+    }
+  },
+  "description": "filtered view on a Map",
+  "keywords": [
+    "filter",
+    "map"
+  ],
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
+  "license": "0BSD",
+  "scripts": {
+    "test": "node --run test:ava",
+    "test:ava": "ava --timeout 4m tests/*-ava.mjs tests/*-ava-node.mjs",
+    "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 4m tests/*-ava.mjs tests/*-ava-node.mjs && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
+    "docs": "documentation readme --section=API ./src**/*.mjs",
+    "lint": "node --run lint:docs",
+    "lint:docs": "documentation lint ./src**/*.mjs"
+  },
+  "devDependencies": {
+    "ava": "^8.0.1",
+    "c8": "^12.0.0",
+    "documentation": "^14.0.3",
+    "semantic-release": "^25.0.9"
+  },
+  "engines": {
+    "node": ">=26.9.0"
+  },
+  "template": {
+    "inheritFrom": [
+      "arlac77/template-arlac77-github",
+      "arlac77/template-node-component"
+    ]
+  }
+}
